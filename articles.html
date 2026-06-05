@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Articles | NovaLuxxAI</title>
+  <meta name="description" content="Helpful, source-backed NovaLuxxAI articles about AI agents, MCP, local-first workflows, coding agents, and small-business AI adoption." />
+  <meta property="og:title" content="NovaLuxxAI Articles | Practical AI agents and operator systems" />
+  <meta property="og:description" content="Updated, source-backed articles about AI agents, MCP, local-first workflows, coding agents, and responsible AI adoption." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://novaluxx.ai/articles.html" />
+  <meta property="og:image" content="https://novaluxx.ai/assets/novaluxx-logo-social.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://novaluxx.ai/assets/novaluxx-logo-social.jpg" />
+  <meta name="theme-color" content="#0a1024" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="nav" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label="NovaLuxxAI home">
+      <img class="brand-logo" src="/assets/novaluxx-mark.png" alt="NovaLuxxAI" width="512" height="512" />
+      <span>NovaLuxxAI</span>
+    </a>
+    <nav>
+      <a href="/articles.html">Articles</a>
+      <a href="/#products">Products</a>
+      <a href="/#systems">Systems</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="article-hero section">
+      <p class="eyebrow">Updated and source-backed · June 5, 2026</p>
+      <h1>Practical AI articles for operators, builders, and small teams.</h1>
+      <p class="lede">These are written to be useful even if you never buy a guide. The goal is to explain what is actually changing in AI agents, where the risks live, and how to turn messy tools into repeatable working systems.</p>
+      <div class="article-index" aria-label="Article list">
+        <a href="#agent-loops"><span>01</span><strong>AI agents are delegation loops, not magic workers</strong></a>
+        <a href="#mcp-local-first"><span>02</span><strong>MCP and local-first context are boring for a good reason</strong></a>
+        <a href="#coding-agents"><span>03</span><strong>How to use coding agents without letting them wander</strong></a>
+        <a href="#workflow-audit"><span>04</span><strong>A Canadian small-business AI workflow audit</strong></a>
+      </div>
+    </section>
+
+    <article id="agent-loops" class="long-article section">
+      <header>
+        <p class="eyebrow">AI agents</p>
+        <h2>AI agents are delegation loops, not magic workers.</h2>
+        <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
+      </header>
+      <p>The useful mental model for an AI agent is not “a smarter chatbot.” It is a loop that can receive a goal, inspect context, choose tools, take bounded action, record what happened, and hand the work back for review. That sounds less glamorous than the pitch, but it is much closer to what makes agents valuable in real operations.</p>
+      <p>OpenAI’s Agents SDK documentation describes an agent as a large language model configured with instructions, tools, and optional runtime behaviours such as handoffs, guardrails, and structured outputs. That definition is important because it puts the emphasis on the system around the model. The model is only one part of the agent. The instructions decide what it should optimize for. The tools decide what it can touch. Guardrails decide what it should refuse or pause on. Handoffs decide when another specialist should take over.</p>
+      <p>The biggest improvement in modern agent tooling is not that the model “thinks harder.” It is that the work can be observed. OpenAI’s tracing documentation says the Agents SDK records events during a run, including LLM generations, tool calls, handoffs, guardrails, and custom events. That turns a mysterious answer into an inspectable work trail. For real teams, that trace is the difference between “the bot says it fixed it” and “here is the sequence of files, commands, assumptions, and decisions that produced this result.”</p>
+      <h3>Where agents already make sense</h3>
+      <p>Agents are strongest when the task has a clear target, a known workspace, and a verification step. Examples include drafting a pull request from a scoped issue, checking a public documentation change against a local guide, refreshing a product proof page, summarizing a set of source links, or turning a repeated operational procedure into a checklist with commands.</p>
+      <p>They are weakest when the goal is vague, the success condition is emotional, the source material is private or ambiguous, or the agent needs authority it has not been given. “Make our company use AI” is not a good agent task. “Inspect these five support macros, identify two places a draft assistant could save time without touching customer records, and write a test workflow” is much better.</p>
+      <h3>The useful pattern: goal, context, action, receipt</h3>
+      <p>A practical agent task should contain four parts. First, the goal: what should be true when the work is done. Second, the context: files, URLs, account boundaries, customer constraints, and known risks. Third, the allowed action: read-only research, local file edits, GitHub PR, browser update, or deployment. Fourth, the receipt: tests run, files changed, source links checked, screenshots captured, and unresolved blockers.</p>
+      <p>This receipt matters because agents can be persuasive even when wrong. If an agent cannot show the path from input to output, it should not be trusted with production work. That does not mean every agent needs enterprise observability on day one. It does mean every useful agent workflow needs some durable evidence: a commit diff, a log, a dated source snapshot, a rendered preview, or a short “what I checked” note.</p>
+      <h3>What to avoid</h3>
+      <p>Do not give an agent broad access before you know its failure modes. Do not ask it to “keep going” without a budget, a stop condition, or a review surface. Do not treat tool access as harmless. A model with a browser, shell, API token, or CRM export is no longer just writing text. It is operating machinery.</p>
+      <p>The right question is not “Can an agent do this?” The better question is “Can we design the loop so the agent has enough context to help, limited authority to avoid damage, and a receipt that lets a human review the work quickly?” If the answer is yes, the task is a good candidate. If the answer is no, start with a checklist, template, or read-only research run.</p>
+      <section class="article-deeper">
+        <h3>If you want to go deeper</h3>
+        <p>For hands-on setup, the <a href="https://novaluxxai.gumroad.com/l/hermes-agent-power-user-setup-guide" rel="noopener">Hermes Agent Power User Setup Guide</a> focuses on local-first agents, Telegram access, skills, and scheduled jobs. The <a href="https://novaluxxai.gumroad.com/l/power-user-ai-coworker-kit" rel="noopener">Power User AI Coworker Kit</a> is a broader template pack for turning assistants into accountable coworkers. They are optional, but they follow the same goal, context, action, receipt pattern described here.</p>
+      </section>
+      <footer class="article-sources">
+        <strong>Sources checked:</strong>
+        <a href="https://openai.github.io/openai-agents-python/agents/" rel="noopener">OpenAI Agents SDK: Agents</a>
+        <a href="https://openai.github.io/openai-agents-python/tracing/" rel="noopener">OpenAI Agents SDK: Tracing</a>
+      </footer>
+    </article>
+
+    <article id="mcp-local-first" class="long-article section">
+      <header>
+        <p class="eyebrow">MCP and context</p>
+        <h2>MCP and local-first context are boring for a good reason.</h2>
+        <p class="article-meta">Verified June 5, 2026 · Reading time: 6 minutes</p>
+      </header>
+      <p>The Model Context Protocol, usually shortened to MCP, is not exciting because it makes flashy demos. It is exciting because it makes integrations less bespoke. The official MCP documentation calls it an open-source standard for connecting AI applications to external systems: local files, databases, search engines, calculators, workflows, and specialized prompts. Anthropic introduced MCP in 2024 as an open standard for connecting AI assistants to the systems where data lives.</p>
+      <p>The “USB-C for AI applications” analogy from the MCP docs is useful. Before a common protocol, every AI app needed its own custom bridge to every useful data source. That gets messy fast. With a shared protocol, a tool can expose a cleaner surface once, and multiple AI clients can connect to it in a more predictable way.</p>
+      <h3>Why local-first still matters</h3>
+      <p>Local-first does not mean anti-cloud. It means the core working context is inspectable, portable, and recoverable. Markdown files, Git repositories, local scripts, SQLite databases, exported CSVs, and documented runbooks are boring. They are also easier to back up, diff, search, and hand to another tool when the first one changes pricing, policies, or model behaviour.</p>
+      <p>For an AI assistant, local-first context reduces a common failure: the model has a vague memory of the work but not the current source of truth. If the assistant can read the actual repo, checklist, note, or receipt, it has a better chance of making a useful change. If it can only infer from a chat transcript, it will eventually drift.</p>
+      <p>MCP fits this pattern because it can let AI clients connect to tools and data without pretending the data belongs inside the model. The model does not need to “remember” your project inventory. A project inventory server can expose it. The model does not need to hallucinate a file. A filesystem tool can read it. The model does not need to guess whether a build passed. A shell or CI tool can report it.</p>
+      <h3>Good context is curated, not infinite</h3>
+      <p>More context is not automatically better. A useful AI workspace should separate stable reference material from temporary noise. Stable material includes product positioning, install steps, architecture notes, account boundaries, style rules, and source snapshots. Temporary noise includes half-finished experiments, raw logs, duplicate exports, and old generated drafts.</p>
+      <p>The best AI systems make this separation explicit. They keep a small set of durable instructions, a larger set of searchable project files, and a habit of saving receipts when the world changes. If a tool’s pricing changes, snapshot the source. If a deployment works, save the URL and commit. If a guide depends on a vendor feature, record the date checked. This is not bureaucracy. It is how you stop fast-moving AI work from becoming folklore.</p>
+      <h3>What teams should build first</h3>
+      <p>Before chasing a full agent platform, build a context spine. Put important procedures in Markdown. Keep product assets in Git. Use clear folder names. Add short README files. Save proof receipts beside the thing they prove. Then let agents work against that structure. You will learn more from one well-instrumented local workflow than from ten disconnected SaaS trials.</p>
+      <section class="article-deeper">
+        <h3>If you want to go deeper</h3>
+        <p>The <a href="https://novaluxxai.gumroad.com/l/hermes-agent-power-user-setup-guide" rel="noopener">Hermes Agent Power User Setup Guide</a> is the most relevant NovaLuxxAI guide for local-first agent setup. The <a href="https://novaluxxai.gumroad.com/l/power-user-ai-coworker-kit" rel="noopener">Power User AI Coworker Kit</a> adds operating templates for keeping an assistant accountable. If you only want a no-cost starting point, try the free first-hour checklists in the NovaLuxxAI Gumroad store.</p>
+      </section>
+      <footer class="article-sources">
+        <strong>Sources checked:</strong>
+        <a href="https://modelcontextprotocol.io/docs/getting-started/intro" rel="noopener">Model Context Protocol documentation</a>
+        <a href="https://www.anthropic.com/news/model-context-protocol" rel="noopener">Anthropic: Introducing the Model Context Protocol</a>
+      </footer>
+    </article>
+
+    <article id="coding-agents" class="long-article section">
+      <header>
+        <p class="eyebrow">Coding agents</p>
+        <h2>How to use coding agents without letting them wander.</h2>
+        <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
+      </header>
+      <p>Coding agents are becoming normal developer tools, but the best results still come from operator discipline. OpenAI introduced Codex in 2025 as a cloud-based software engineering agent that can work on many tasks in parallel. That “parallel” part is powerful, but it also raises the coordination problem: if five agents can change code at once, someone still needs to decide what each one is allowed to touch, how success is measured, and when to stop.</p>
+      <p>A coding agent should rarely receive a vague prompt like “improve this app.” Better prompts look like small tickets: fix the failing login redirect test, add a loading state to this component, update the README install section to match the current Docker Compose file, or create a draft PR that adds one API endpoint with tests. The agent needs a bounded task because software work has hidden coupling. One broad instruction can become a pile of unrelated edits that are hard to review.</p>
+      <h3>The three files that make coding agents better</h3>
+      <p>Most repositories need three lightweight files before agents become consistently useful. First, a project README that says how to install, run, test, and deploy. Second, an agent instruction file that explains boundaries: coding style, commands to use, files not to touch, secrets rules, and review expectations. Third, a task template that forces scope, acceptance criteria, and verification.</p>
+      <p>Those files do not need to be fancy. The agent needs enough structure to avoid rediscovering the same facts every run. If it has to guess the package manager, test command, or deployment path, it will sometimes guess wrong. If the repo tells it exactly what to do, the work becomes faster and easier to audit.</p>
+      <h3>Ask for diffs, not declarations</h3>
+      <p>A coding agent saying “done” is not evidence. A useful report includes the files changed, tests run, commands that failed, and the remaining risks. For larger tasks, a pull request is better than direct mutation because the diff becomes the review surface. Even when an agent is highly capable, you want the work packaged in a form humans and CI can inspect.</p>
+      <p>The same applies to generated documentation. If the agent updates a guide based on tool behaviour, it should include the source it checked and the date. If it changes a command, it should run it or explain why it could not. If it cannot verify because credentials, paid access, or an OS difference blocks the path, it should say that plainly.</p>
+      <h3>Use parallelism only after the repo is ready</h3>
+      <p>Parallel agents are tempting. The safe path is to split work by ownership boundaries: one agent updates docs, one agent writes tests, one agent investigates a bug, one agent drafts a UI change. Do not point multiple agents at the same fragile area unless you are prepared to resolve conflicts and review carefully.</p>
+      <p>When used well, coding agents are not replacing software judgement. They are compressing the time between a clear ticket and a reviewable patch. The operator’s job shifts toward writing better tickets, maintaining better repo instructions, and refusing to accept unverified claims.</p>
+      <section class="article-deeper">
+        <h3>If you want to go deeper</h3>
+        <p>The <a href="https://novaluxxai.gumroad.com/l/codex-cli-automation-starter-kit" rel="noopener">Codex CLI Automation Starter Kit</a> is built around safer repo automation, prompts, and conservative GitHub Actions. The <a href="https://novaluxxai.gumroad.com/l/codex-app-mobile-complete-setup-bundle" rel="noopener">Codex App + Mobile Remote Complete Setup Bundle</a> focuses on using Codex from desktop and mobile without blurring host boundaries.</p>
+      </section>
+      <footer class="article-sources">
+        <strong>Sources checked:</strong>
+        <a href="https://openai.com/index/introducing-codex/" rel="noopener">OpenAI: Introducing Codex</a>
+        <a href="https://openai.github.io/openai-agents-python/tracing/" rel="noopener">OpenAI Agents SDK: Tracing</a>
+      </footer>
+    </article>
+
+    <article id="workflow-audit" class="long-article section">
+      <header>
+        <p class="eyebrow">Small-business AI</p>
+        <h2>A Canadian small-business AI workflow audit.</h2>
+        <p class="article-meta">Verified June 5, 2026 · Reading time: 8 minutes</p>
+      </header>
+      <p>Small businesses do not need an AI transformation program before they can get value. They need a careful inventory of repeated work, information risk, customer impact, and measurable outcomes. The first useful AI workflow is usually not the flashiest one. It is the one that saves time without creating a privacy, quality, or trust problem.</p>
+      <p>The Government of Canada’s guide on generative AI says federal institutions should explore potential uses of generative AI tools, but should not use them in all cases. It says institutions must be cautious, evaluate risks before use, and limit use to cases where risks can be managed effectively. That advice translates well to small businesses. Curiosity is good. Blanket adoption is not.</p>
+      <p>NIST’s Generative AI Profile, published in 2024 as a companion to the AI Risk Management Framework, frames generative AI around trustworthiness and risk management across the AI lifecycle. For a small team, that does not require a giant governance department. It means asking simple questions before building: What data goes in? Who reviews the output? What happens if the model is wrong? Can the customer tell when AI was involved? What evidence would prove this workflow helped?</p>
+      <h3>A practical audit path</h3>
+      <p>Start by listing ten repeated tasks from the last two weeks. Good candidates include first-draft emails, internal knowledge-base cleanup, meeting summaries, quote preparation, ticket triage, invoice matching, onboarding checklists, product descriptions, and report formatting. For each task, write down frequency, time spent, data sensitivity, error cost, and the current bottleneck.</p>
+      <p>Then separate the tasks into three lanes. Lane one is low-risk drafting: AI can help create a first version, but a person reviews before anything leaves the company. Lane two is internal analysis: AI can summarize or classify internal material, but the output stays inside the team. Lane three is high-impact automation: AI output affects customers, money, legal commitments, hiring, health, safety, or access to services. Lane three needs much more caution, testing, and human oversight.</p>
+      <p>Most teams should start in lane one. A good first workflow might be “turn call notes into a draft follow-up email using this approved template” or “summarize release notes into internal support bullets.” These tasks save real time, but they keep a human in the loop and avoid giving the model authority to decide outcomes.</p>
+      <h3>Measure boring things</h3>
+      <p>Do not measure AI success by novelty. Measure cycle time, rework, error rate, customer clarity, staff frustration, and handoff quality. If a workflow saves ten minutes but creates fifteen minutes of checking, it failed. If it saves five minutes and reduces blank-page friction every day, it may be worth keeping.</p>
+      <p>Also measure maintenance. AI workflows break when vendor interfaces change, prompts drift, staff stop trusting the output, or the source material gets stale. A workflow that depends on current pricing, policies, or technical docs needs a recheck habit. Save the source URL and date checked. Revisit it on a schedule. Treat the workflow as an operating procedure, not a one-time trick.</p>
+      <h3>The best first win</h3>
+      <p>The best first win is usually a workflow that turns messy internal input into a cleaner draft for a human. It does not need direct customer access. It does not need secret data. It does not need a fully autonomous agent. It needs a good template, a clear review step, and a receipt that proves the output was checked.</p>
+      <p>That is less dramatic than “AI runs the business.” It is also how trust is built. A team that learns to use AI safely on small workflows will be much better prepared for agents, integrations, and automation later.</p>
+      <section class="article-deeper">
+        <h3>If you want to go deeper</h3>
+        <p>The <a href="https://novaluxxai.gumroad.com/l/ai-workflow-audit-kit-nova-scotia-smes" rel="noopener">AI Workflow Audit Kit for Nova Scotia SMEs</a> expands this audit into a workbook for scoring workflows, buyer-safe claims, and implementation boundaries. It is written for practical Canadian small-business use, but the basic method above is free to use as-is.</p>
+      </section>
+      <footer class="article-sources">
+        <strong>Sources checked:</strong>
+        <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html" rel="noopener">Government of Canada: Guide on the use of generative AI</a>
+        <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" rel="noopener">NIST: Generative AI Profile</a>
+      </footer>
+    </article>
+  </main>
+
+  <footer id="contact" class="footer">
+    <div>
+      <a class="brand" href="/"><img class="brand-logo" src="/assets/novaluxx-mark.png" alt="NovaLuxxAI" width="512" height="512" /><span>NovaLuxxAI</span></a>
+      <p>Practical AI operator guides, checklists, and systems from Nova Scotia.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="https://novaluxxai.gumroad.com/" rel="noopener">Gumroad store</a>
+      <a href="mailto:novaluxxai@gmail.com">novaluxxai@gmail.com</a>
+    </div>
+  </footer>
+</body>
+</html>
