@@ -12,42 +12,34 @@
   <meta property="og:image" content="https://novaluxx.ai/assets/novaluxx-logo-social.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://novaluxx.ai/assets/novaluxx-logo-social.jpg" />
-  <meta name="theme-color" content="#0a1024" />
+  <meta name="theme-color" content="#f2eadc" />
   <link rel="icon" href="/favicon.png" type="image/png" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="orb orb-a"></div>
-  <div class="orb orb-b"></div>
-
-  <header class="nav" aria-label="Main navigation">
-    <a class="brand" href="/" aria-label="NovaLuxxAI home">
-      <img class="brand-logo" src="/assets/novaluxx-mark.png" alt="NovaLuxxAI" width="512" height="512" />
-      <span>NovaLuxxAI</span>
-    </a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label="NovaLuxxAI home"><span class="brand-seal" aria-hidden="true">N</span><span>NovaLuxxAI</span></a>
     <nav>
+      <a href="/agent-coworker-guide.html">Agent Coworker Guide</a>
       <a href="/articles.html">Articles</a>
       <a href="/#products">Products</a>
-      <a href="/#systems">Systems</a>
       <a href="/#contact">Contact</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="article-hero section">
-      <p class="eyebrow">Updated and source-backed · June 5, 2026</p>
+  <main id="main">
+    <section class="article-hero section guide-page-cover">
+      <p class="kicker">Updated and source-backed · June 5, 2026</p>
       <h1>Practical AI articles for operators, builders, and small teams.</h1>
       <p class="lede">These twelve articles are written to be useful even if you never buy a guide. The goal is to explain what is actually changing in AI agents, where the risks live, and how to turn messy tools into repeatable working systems.</p>
       <div class="article-index" aria-label="Article list">
         <a href="#agent-loops"><span>01</span><strong>AI agents are delegation loops, not magic workers</strong></a>
         <a href="#mcp-local-first"><span>02</span><strong>MCP and local-first context are boring for a good reason</strong></a>
         <a href="#coding-agents"><span>03</span><strong>How to use coding agents without letting them wander</strong></a>
-        <a href="#workflow-audit"><span>04</span><strong>A Canadian small-business AI workflow audit</strong></a>
+        <a href="#workflow-audit"><span>04</span><strong>A practical small-business AI workflow audit</strong></a>
         <a href="#prompting-interface"><span>05</span><strong>Prompting is interface design, not magic wording</strong></a>
         <a href="#rag-receipts"><span>06</span><strong>RAG is useful when it gives receipts, not just answers</strong></a>
         <a href="#agent-security"><span>07</span><strong>Agent security starts with boring permission boundaries</strong></a>
@@ -61,7 +53,7 @@
 
     <article id="agent-loops" class="long-article section">
       <header>
-        <p class="eyebrow">AI agents</p>
+        <p class="kicker">AI agents</p>
         <h2>AI agents are delegation loops, not magic workers.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -90,7 +82,7 @@
 
     <article id="mcp-local-first" class="long-article section">
       <header>
-        <p class="eyebrow">MCP and context</p>
+        <p class="kicker">MCP and context</p>
         <h2>MCP and local-first context are boring for a good reason.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 6 minutes</p>
       </header>
@@ -118,7 +110,7 @@
 
     <article id="coding-agents" class="long-article section">
       <header>
-        <p class="eyebrow">Coding agents</p>
+        <p class="kicker">Coding agents</p>
         <h2>How to use coding agents without letting them wander.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -146,12 +138,12 @@
 
     <article id="workflow-audit" class="long-article section">
       <header>
-        <p class="eyebrow">Small-business AI</p>
-        <h2>A Canadian small-business AI workflow audit.</h2>
+        <p class="kicker">Small-business AI</p>
+        <h2>A practical small-business AI workflow audit.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 8 minutes</p>
       </header>
       <p>Small businesses do not need an AI transformation program before they can get value. They need a careful inventory of repeated work, information risk, customer impact, and measurable outcomes. The first useful AI workflow is usually not the flashiest one. It is the one that saves time without creating a privacy, quality, or trust problem.</p>
-      <p>The Government of Canada’s guide on generative AI says federal institutions should explore potential uses of generative AI tools, but should not use them in all cases. It says institutions must be cautious, evaluate risks before use, and limit use to cases where risks can be managed effectively. That advice translates well to small businesses. Curiosity is good. Blanket adoption is not.</p>
+      <p>Public-sector generative AI guidance tends to point in the same direction: explore useful applications, evaluate risks first, and limit use to cases where risks can be managed effectively. That advice translates well to small businesses. Curiosity is good. Blanket adoption is not.</p>
       <p>NIST’s Generative AI Profile, published in 2024 as a companion to the AI Risk Management Framework, frames generative AI around trustworthiness and risk management across the AI lifecycle. For a small team, that does not require a giant governance department. It means asking simple questions before building: What data goes in? Who reviews the output? What happens if the model is wrong? Can the customer tell when AI was involved? What evidence would prove this workflow helped?</p>
       <h3>A practical audit path</h3>
       <p>Start by listing ten repeated tasks from the last two weeks. Good candidates include first-draft emails, internal knowledge-base cleanup, meeting summaries, quote preparation, ticket triage, invoice matching, onboarding checklists, product descriptions, and report formatting. For each task, write down frequency, time spent, data sensitivity, error cost, and the current bottleneck.</p>
@@ -165,11 +157,10 @@
       <p>That is less dramatic than “AI runs the business.” It is also how trust is built. A team that learns to use AI safely on small workflows will be much better prepared for agents, integrations, and automation later.</p>
       <section class="article-deeper">
         <h3>If you want to go deeper</h3>
-        <p>The <a href="https://novaluxxai.gumroad.com/l/ai-workflow-audit-kit-nova-scotia-smes" rel="noopener">AI Workflow Audit Kit for Nova Scotia SMEs</a> expands this audit into a workbook for scoring workflows, buyer-safe claims, and implementation boundaries. It is written for practical Canadian small-business use, but the basic method above is free to use as-is.</p>
+        <p>The <a href="https://novaluxxai.gumroad.com/" rel="noopener">AI Workflow Audit Kit</a> expands this audit into a workbook for scoring workflows, buyer-safe claims, and implementation boundaries. It is written for practical small-business use, but the basic method above is free to use as-is.</p>
       </section>
       <footer class="article-sources">
         <strong>Sources checked:</strong>
-        <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html" rel="noopener">Government of Canada: Guide on the use of generative AI</a>
         <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" rel="noopener">NIST: Generative AI Profile</a>
       </footer>
     </article>
@@ -177,7 +168,7 @@
 
     <article id="prompting-interface" class="long-article section">
       <header>
-        <p class="eyebrow">Prompting</p>
+        <p class="kicker">Prompting</p>
         <h2>Prompting is interface design, not magic wording.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -204,7 +195,7 @@
 
     <article id="rag-receipts" class="long-article section">
       <header>
-        <p class="eyebrow">RAG and evidence</p>
+        <p class="kicker">RAG and evidence</p>
         <h2>RAG is useful when it gives receipts, not just answers.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -231,7 +222,7 @@
 
     <article id="agent-security" class="long-article section">
       <header>
-        <p class="eyebrow">Security</p>
+        <p class="kicker">Security</p>
         <h2>Agent security starts with boring permission boundaries.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 8 minutes</p>
       </header>
@@ -258,7 +249,7 @@
 
     <article id="evals" class="long-article section">
       <header>
-        <p class="eyebrow">Evaluation</p>
+        <p class="kicker">Evaluation</p>
         <h2>AI evals are how small teams stop guessing.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -274,7 +265,7 @@
       <p>AI tools change. Prompts change. Source material changes. That means evals should run again when the workflow changes, when a vendor releases a major update, or when staff notice drift. A small living eval set is more valuable than a large one-time report.</p>
       <section class="article-deeper">
         <h3>If you want to go deeper</h3>
-        <p>The <a href="https://novaluxxai.gumroad.com/l/ai-workflow-audit-kit-nova-scotia-smes" rel="noopener">AI Workflow Audit Kit for Nova Scotia SMEs</a> includes workflow scoring and safer first-use selection. The <a href="https://novaluxxai.gumroad.com/l/power-user-ai-coworker-kit" rel="noopener">Power User AI Coworker Kit</a> is useful when you want reusable review rubrics for assistant work.</p>
+        <p>The <a href="https://novaluxxai.gumroad.com/" rel="noopener">AI Workflow Audit Kit</a> includes workflow scoring and safer first-use selection. The <a href="https://novaluxxai.gumroad.com/l/power-user-ai-coworker-kit" rel="noopener">Power User AI Coworker Kit</a> is useful when you want reusable review rubrics for assistant work.</p>
       </section>
       <footer class="article-sources">
         <strong>Sources checked:</strong>
@@ -285,12 +276,12 @@
 
     <article id="human-approval" class="long-article section">
       <header>
-        <p class="eyebrow">Governance</p>
+        <p class="kicker">Governance</p>
         <h2>Human approval gates are a feature, not a weakness.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 6 minutes</p>
       </header>
       <p>AI marketing often treats human review as friction. In real operations, human review is how you safely unlock more automation. An approval gate does not mean the agent failed. It means the system knows which actions deserve judgement before they happen.</p>
-      <p>The Government of Canada guide on generative AI tells institutions to explore useful applications while evaluating risks and limiting use to cases where risks can be managed effectively. NIST's Generative AI Profile also frames AI adoption around risk management and trustworthiness. For small teams, this points to a practical pattern: automate drafts, preparation, routing, and checking before automating final authority.</p>
+      <p>Public-sector AI guidance and NIST's Generative AI Profile both point toward risk-aware adoption rather than blanket automation. For small teams, this suggests a practical pattern: automate drafts, preparation, routing, and checking before automating final authority.</p>
       <h3>Where approval gates belong</h3>
       <p>Use approval gates anywhere the cost of a wrong action is high. Sending customer messages, changing prices, refunding money, deleting records, altering permissions, publishing public claims, filing legal or tax material, and deploying production code all deserve extra care. The agent can prepare the work, but a person should approve the final move until the workflow is proven and monitored.</p>
       <p>Approval does not need to be slow. The agent can show a compact diff, source list, test result, and recommended next action. A human can then say yes, no, or revise. That is much faster than doing everything manually, while still keeping authority visible.</p>
@@ -299,18 +290,17 @@
       <p>If staff start skipping approval because it feels pointless, the gate is poorly designed. If the gate catches genuine mistakes and gives reviewers confidence, it is doing valuable work.</p>
       <section class="article-deeper">
         <h3>If you want to go deeper</h3>
-        <p>The <a href="https://novaluxxai.gumroad.com/l/ai-workflow-audit-kit-nova-scotia-smes" rel="noopener">AI Workflow Audit Kit for Nova Scotia SMEs</a> helps decide which workflows can safely stay human-reviewed and which might later graduate to more automation. The <a href="https://novaluxxai.gumroad.com/l/hermes-agent-power-user-setup-guide" rel="noopener">Hermes Agent Power User Setup Guide</a> is helpful for people building local assistant workflows with clearer authority boundaries.</p>
+        <p>The <a href="https://novaluxxai.gumroad.com/" rel="noopener">AI Workflow Audit Kit</a> helps decide which workflows can safely stay human-reviewed and which might later graduate to more automation. The <a href="https://novaluxxai.gumroad.com/l/hermes-agent-power-user-setup-guide" rel="noopener">Hermes Agent Power User Setup Guide</a> is helpful for people building local assistant workflows with clearer authority boundaries.</p>
       </section>
       <footer class="article-sources">
         <strong>Sources checked:</strong>
-        <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html" rel="noopener">Government of Canada: Guide on generative AI</a>
         <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" rel="noopener">NIST: Generative AI Profile</a>
       </footer>
     </article>
 
     <article id="knowledge-base" class="long-article section">
       <header>
-        <p class="eyebrow">Knowledge systems</p>
+        <p class="kicker">Knowledge systems</p>
         <h2>Build the knowledge base your agent can actually use.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -337,7 +327,7 @@
 
     <article id="tool-choice" class="long-article section">
       <header>
-        <p class="eyebrow">Tool selection</p>
+        <p class="kicker">Tool selection</p>
         <h2>How to choose between AI tools without chasing every launch.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 8 minutes</p>
       </header>
@@ -366,7 +356,7 @@
 
     <article id="mobile-remote" class="long-article section">
       <header>
-        <p class="eyebrow">Mobile and remote work</p>
+        <p class="kicker">Mobile and remote work</p>
         <h2>Mobile AI work is powerful when the host stays in control.</h2>
         <p class="article-meta">Verified June 5, 2026 · Reading time: 7 minutes</p>
       </header>
@@ -395,8 +385,8 @@
 
   <footer id="contact" class="footer">
     <div>
-      <a class="brand" href="/"><img class="brand-logo" src="/assets/novaluxx-mark.png" alt="NovaLuxxAI" width="512" height="512" /><span>NovaLuxxAI</span></a>
-      <p>Practical AI operator guides, checklists, and systems from Nova Scotia.</p>
+      <a class="brand" href="/"><span class="brand-seal" aria-hidden="true">N</span><span>NovaLuxxAI</span></a>
+      <p>Practical AI operator guides, checklists, and systems from Aster and Rob.</p>
     </div>
     <div class="footer-links">
       <a href="/">Home</a>
